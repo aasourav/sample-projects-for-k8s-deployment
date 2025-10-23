@@ -8,7 +8,7 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/list');
+      const response = await axios.get('/api/list');
       setTodos(response.data);
     } catch (error) {
       console.error('Error fetching TODOs', error);
@@ -17,7 +17,7 @@ const TodoList = () => {
 
   const handleDone = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/done/${id}`);
+      await axios.put(`/api/done/${id}`);
       fetchTodos();
     } catch (error) {
       console.error('Error marking TODO as done', error);
@@ -26,7 +26,7 @@ const TodoList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/delete/${id}`);
+      await axios.delete(`/api/delete/${id}`);
       fetchTodos();
     } catch (error) {
       console.error('Error deleting TODO', error);
