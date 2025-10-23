@@ -37,7 +37,7 @@ const TodoForm = ({ onAdd }) => {
     if (!title) return;
 
     try {
-        const response = await axios.post('/betodo/create', { title });
+        const response = await axios.post('/create', { title });
         console.log("HIHI",response.data) 
       onAdd(response.data);
       setTitle('');
