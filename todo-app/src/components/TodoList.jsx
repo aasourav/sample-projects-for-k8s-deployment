@@ -8,7 +8,7 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('/betodo/list');
+      const response = await axios.get('/list');
       setTodos(response.data);
     } catch (error) {
       console.error('Error fetching TODOs', error);
@@ -17,7 +17,7 @@ const TodoList = () => {
 
   const handleDone = async (id) => {
     try {
-      await axios.put(`/betodo/done/${id}`);
+      await axios.put(`/done/${id}`);
       fetchTodos();
     } catch (error) {
       console.error('Error marking TODO as done', error);
@@ -26,7 +26,7 @@ const TodoList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/betodo/delete/${id}`);
+      await axios.delete(`/delete/${id}`);
       fetchTodos();
     } catch (error) {
       console.error('Error deleting TODO', error);
